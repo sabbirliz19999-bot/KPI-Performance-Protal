@@ -175,27 +175,30 @@
         </div>
 
 
-        <div class="upload-area">
+      <!-- Excel Upload -->
+<div class="upload-area">
 
-            <h3>📁 Upload KPI Excel File</h3>
+    <h3>📁 Upload KPI Excel File</h3>
 
-            <p>
-                Upload your KPI Excel file to update the result database.
-            </p>
+    <p>Upload your KPI Excel file.</p>
 
-            <input
-                type="file"
-                id="excelFile"
-                accept=".xlsx,.xls,.csv"
-            >
+    <input
+        type="file"
+        id="excelFile"
+        accept=".xlsx,.xls,.csv"
+    >
 
-            <button onclick="uploadExcel()" class="upload-btn">
-                Upload Excel
-            </button>
+    <button
+        type="button"
+        onclick="handleExcelUpload()"
+        class="upload-btn"
+    >
+        Upload Excel
+    </button>
 
-            <p id="uploadMessage"></p>
+    <p id="uploadMessage"></p>
 
-        </div>
+</div>
 
 
         <div class="editor-stats">
