@@ -1,1 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>KPI Performance Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- PDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo-area">
+        <div class="logo-box">KPI</div>
+
+        <div>
+            <h1>KPI Performance Portal</h1>
+            <p>Employee Performance Management System</p>
+        </div>
+    </div>
+
+    <button class="editor-btn" onclick="showLogin()">
+        🔐 Editor Login
+    </button>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+    <!-- SEARCH SECTION -->
+
+    <section class="search-card">
+
+        <h2>🔎 Search KPI Result</h2>
+
+        <p class="description">
+            Search employee by Employee ID or Employee Name
+        </p>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Enter Employee ID or Name..."
+                onkeyup="searchEmployee()"
+            >
+
+            <button onclick="searchEmployee()">
+                Search
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULT SECTION -->
+
+    <section id="resultSection" class="result-section">
+
+        <div class="empty-result">
+
+            <div class="search-icon">🔍</div>
+
+            <h3>Search an Employee</h3>
+
+            <p>
+                Enter an Employee ID or Name to view KPI performance.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- KPI DASHBOARD -->
+
+    <section class="dashboard">
+
+        <h2>📊 KPI Overview</h2>
+
+        <div class="stat-grid">
+
+            <div class="stat-card">
+                <span>Total Employees</span>
+                <strong id="totalEmployees">250</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Total KPI</span>
+                <strong>1,250</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Average Score</span>
+                <strong>82.45%</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Last Updated</span>
+                <strong>02 Oct 2026</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= EDITOR LOGIN MODAL ================= -->
+
+<div id="loginModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeLogin()">×</span>
+
+        <h2>🔐 Editor Login</h2>
+
+        <p>Only authorized users can access the Editor Panel.</p>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+        <button class="login-button" onclick="editorLogin()">
+            Login
+        </button>
+
+        <p id="loginMessage"></p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= EDITOR PANEL ================= -->
+
+<div id="editorPanel" class="editor-panel">
+
+    <div class="editor-box">
+
+        <div class="editor-header">
+
+            <div>
+                <h2>⚙️ Editor Panel</h2>
+                <p>KPI Data Management</p>
+            </div>
+
+            <button onclick="logout()" class="logout-btn">
+                Logout
+            </button>
+
+        </div>
+
+
+        <div class="upload-area">
+
+            <h3>📁 Upload KPI Excel File</h3>
+
+            <p>
+                Upload your KPI Excel file to update the result database.
+            </p>
+
+            <input
+                type="file"
+                id="excelFile"
+                accept=".xlsx,.xls,.csv"
+            >
+
+            <button onclick="uploadExcel()" class="upload-btn">
+                Upload Excel
+            </button>
+
+            <p id="uploadMessage"></p>
+
+        </div>
+
+
+        <div class="editor-stats">
+
+            <div>
+                <span>Total Employees</span>
+                <strong>250</strong>
+            </div>
+
+            <div>
+                <span>Total Records</span>
+                <strong>1,250</strong>
+            </div>
+
+            <div>
+                <span>Status</span>
+                <strong class="online">Online</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <p>
+        © 2026 KPI Performance Portal | HR Department
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
